@@ -27,6 +27,10 @@ hands=mp_hand.Hands(
 
 while True:
   isTrue, frame=video.read()
+
+  if isTrue == False:
+    break
+
   frame=cv.flip(frame,1)
   frame=cv.cvtColor(frame,cv.COLOR_BGR2RGB)
   frame.flags.writeable=False
@@ -80,11 +84,8 @@ while True:
 
   frame=cv.cvtColor(frame,cv.COLOR_RGB2BGR)
   cv.imshow('Webcam',frame)
+  
   key=cv.waitKey(1)
-
-  if isTrue == False:
-    break
-
   if key==ord('q'):
     break
 
